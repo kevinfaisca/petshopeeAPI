@@ -30,7 +30,7 @@ namespace ApiPetShop.Controllers
 
                 try
                 {
-                    strSql = "SELECT * FROM TB_PRODUTO";
+                    strSql = "SELECT * FROM tb_produto";
                     cmd = new SqlCommand(strSql, conec.conexao);
                     cmd.ExecuteNonQuery();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -45,7 +45,8 @@ namespace ApiPetShop.Controllers
                             Marca = row["ds_marca"].ToString(),
                             Nome = row["ds_nome"].ToString(),
                             Preco = Convert.ToDouble(row["ds_preco"]),
-                            Quantidade = Convert.ToInt32(row["nr_quantidade"])
+                            Quantidade = Convert.ToInt32(row["nr_quantidade"]),
+                            Imagem = row["ds_imagem"].ToString()
                         };
 
                         produtos.Add(produto);
